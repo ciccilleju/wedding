@@ -44,7 +44,6 @@ const RSVP = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    const newValue = value === "true";
     setFormData(prevState => ({
       ...prevState,
       [id]: id === 'attendance' ? value === 'true' : value
