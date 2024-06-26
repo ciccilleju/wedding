@@ -16,6 +16,7 @@ import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 import Logout from './components/Logout';
 import AccommodationHungary from './components/AccommodationHungary';
+import UserManagement from './components/UsersManagement/UserManagement';
 
 
 
@@ -75,6 +76,12 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/users" element={
+              <PrivateRoute roles={['admin']}>
+                <UserManagement />
+              </PrivateRoute>
+            } />
+
           </Routes>
 
         </main>

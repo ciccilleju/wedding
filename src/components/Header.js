@@ -9,6 +9,7 @@ const Header = () => {
   const { t } = useTranslation();
   const { isUserLoggedIn, userRole } = useContext(AuthContext);
 
+
   useEffect(() => {
     console.log(isUserLoggedIn);
     console.log(userRole);
@@ -35,6 +36,7 @@ const Header = () => {
           <li><Link to="/rsvp">{t('rsvp')}</Link></li>
           <li><Link to="/contact">{t('contact')}</Link></li>
           {isUserLoggedIn && <li><Link to="/logout">Logout</Link></li>}
+          {userRole === 'admin' && <li><Link to="/users">Users Management</Link></li>}
         </ul>
       </nav>
     </header >

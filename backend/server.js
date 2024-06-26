@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+const usersRoutes = require('./routes/users');
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/wedding', {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/users', usersRoutes);
 
 app.listen(5001, () => {
   console.log('Server running on port 5001');
