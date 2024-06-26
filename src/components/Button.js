@@ -25,7 +25,7 @@ const Button = ({ children, onClick, disabled, variant = 'primary', classes }) =
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'disabled']),
 };
 
 export default Button;

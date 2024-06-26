@@ -10,6 +10,11 @@ const UserList = ({ users, handleUpdateUser, handleDeleteUser }) => {
               <p className="text-lg font-semibold">Username: {user.username}</p>
               <p className="text-gray-600">Language: {user.language}</p>
               <p className="text-gray-600">Role: {user.role}</p>
+              {user.attendance && <>
+                <p className="text-gray-600">Attendance: {user.attendance ? 'Yes' : 'No'}</p>
+                <p className="text-gray-600">Guests: {user.guests}</p>
+                <p className="text-gray-600">Intollerances: {user.notes}</p>
+              </>}
             </div>
             <div className="mt-4 md:mt-0 flex  flex-col">
               <button

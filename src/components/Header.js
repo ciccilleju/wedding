@@ -9,12 +9,12 @@ const Header = () => {
   const { t } = useTranslation();
   const { isUserLoggedIn, userRole } = useContext(AuthContext);
 
-
-  useEffect(() => {
-    console.log(isUserLoggedIn);
-    console.log(userRole);
-  }, [userRole, isUserLoggedIn]);
-
+  /* 
+    useEffect(() => {
+      console.log(isUserLoggedIn);
+      console.log(userRole);
+    }, [userRole, isUserLoggedIn]);
+   */
 
   return (
     <header>

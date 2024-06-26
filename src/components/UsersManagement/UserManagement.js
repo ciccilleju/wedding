@@ -6,7 +6,7 @@ import Button from '../Button';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({ username: '', password: '', role: 'guest_italy', language: 'it' });
+  const [formData, setFormData] = useState({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
   const [editUser, setEditUser] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -23,10 +23,9 @@ const UserManagement = () => {
       setUsers(response.data.users);
       setTotalPages(response.data.totalPages);
     };
-    console.log(totalPages);
+
     fetchUsers();
   }, [currentPage]);
-
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -44,14 +43,14 @@ const UserManagement = () => {
     try {
       const response = await axios.post('/api/users', formData);
       setUsers([...users, response.data]);
-      //  setFormData({ username: '', password: '', role: 'guest', language: 'it' });
+      setFormData({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
+      setEditUser('');
     } catch (error) {
       console.error('Error creating user:', error);
     }
   };
 
   const updateUser = async () => {
-    debugger
     try {
       const response = await axios.put(`/api/users/${selectedUser._id}`, formData);
       const updatedUsers = users.map(user => (user._id === selectedUser._id ? response.data : user));
@@ -78,7 +77,7 @@ const UserManagement = () => {
     setEditUser('update');
     setSelectedUser(user);
     const userToUpdate = user;
-    setFormData({ username: userToUpdate.username, password: userToUpdate.password, role: userToUpdate.role, language: userToUpdate.language });
+    setFormData({ username: userToUpdate.username, password: userToUpdate.password, role: userToUpdate.role, language: userToUpdate.language, attendance: userToUpdate.attendance, guests: userToUpdate.guests, notes: userToUpdate.notes });
   }
   const handleDeleteUser = async (user) => {
     setSelectedUser(user);
@@ -130,6 +129,31 @@ const UserManagement = () => {
             <option value="hu">Ungherese</option>
             <option value="en">Inglese</option>
           </select>
+          {editUser === 'update' && <>
+
+            <label>Attendance</label>
+            <select
+              id="attendance"
+              value={formData.attendance}
+              onChange={(e) => setFormData({ ...formData, attendance: e.target.value === 'true' })}
+            >
+              <option value=""></option>
+              <option value={true}>Sì</option>
+              <option value={false}>No</option>
+
+
+            </select>
+
+            {formData.attendance && <>
+              <label>Guests</label>
+              <input type="number" placeholder="Number of guests" value={formData.guests} onChange={(e) => setFormData({ ...formData, guests: e.target.value })} />
+
+              <label>Intollerances and Notes:</label>
+              <textarea type="text" placeholder="Intollerances and Notes" value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} />
+
+            </>}
+
+          </>}
           {editUser === 'add' && <Button variant="primary" type="submit">Create User</Button>}
           {editUser === 'update' && <Button variant="primary" type="button" onClick={() => updateUser(selectedUser?._id)}>Update User</Button>}
         </form>

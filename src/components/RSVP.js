@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from './Button';
 import { AuthContext } from '../context/AuthContext';
+import axios from 'axios';
 
 const RSVP = () => {
   const { t } = useTranslation();
@@ -11,29 +12,42 @@ const RSVP = () => {
     name: '',
     attendance: '',
     guests: 0,
-    intollerances: ''
+    notes: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log(formData);
+    updateUser();
   };
 
   useEffect(() => {
     if (user) {
+      console.log(user);
       setFormData(prevState => ({
         ...prevState,
-        name: user.username
+        name: user.username,
+        attendance: user.attendance
       }));
     }
   }, [user]);
 
+  const updateUser = async () => {
+    try {
+      const res = await axios.put(`/api/users/${user._id}`, formData);
+      console.log(res);
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
+  };
+
+
   const handleChange = (e) => {
     const { id, value } = e.target;
+    const newValue = value === "true";
     setFormData(prevState => ({
       ...prevState,
-      [id]: value
+      [id]: id === 'attendance' ? value === 'true' : value
     }));
   };
 
@@ -58,11 +72,12 @@ const RSVP = () => {
           onChange={handleChange}
         >
           <option value=""></option>
-          <option value="yes">Sì</option>
-          <option value="no">No</option>
+          <option value={true}>Sì</option>
+          <option value={false}>No</option>
+
         </select>
 
-        {formData.attendance === 'yes' && (
+        {formData.attendance && (
           <>
             <label htmlFor="guests">{t('guests')}?</label>
             <select
@@ -76,10 +91,10 @@ const RSVP = () => {
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-            <label htmlFor="intollerances">{t('intollerances')}:</label>
+            <label htmlFor="notes">{t('notes')}:</label>
             <textarea
-              id="intollerances"
-              value={formData.intollerances}
+              id="notes"
+              value={formData.notes}
               onChange={handleChange}
               required
             />
