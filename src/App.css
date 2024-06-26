@@ -35,8 +35,7 @@ nav a:hover {
 
 main {
   padding: 2rem;
-  max-width: 1440px;
-  margin: 0 auto;
+
 }
 
 section {
@@ -61,5 +60,5 @@ input,
 button,
 select {
   @apply border rounded-md px-4 py-2 outline-none focus:border-blue-500;
-  min-width: 200px;
+  min-width: 100%;
 }

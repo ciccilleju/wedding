@@ -26,7 +26,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Header />
-        <main>
+        <main className="max-w-screen-xl mx-auto">
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />

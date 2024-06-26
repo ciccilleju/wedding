@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Button from './Button';
 
 const RSVP = () => {
   const [name, setName] = useState('');
@@ -7,6 +8,7 @@ const RSVP = () => {
   const [attendance, setAttendance] = useState('');
 
   const handleSubmit = (e) => {
+    alert('prent')
     e.preventDefault();
     // handle form submission logic
   };
@@ -37,7 +39,9 @@ const RSVP = () => {
             <option value="5">5</option>
           </select>
         </>}
-        <button type="submit">Invia</button>
+        <Button type="submit" onClick={handleSubmit} variant="primary" > Invia </Button>
+
+
       </form>
     </section>
   );

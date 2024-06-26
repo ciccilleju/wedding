@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ConfirmationDialog from '../UI/Dialog';
+import UserList from './UsersList';
+import Button from '../Button';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -84,20 +86,20 @@ const UserManagement = () => {
   return (
     <div>
       <h2 className="text-3xl font-bold underline">User Management</h2>
-      {editUser !== 'update' && <button onClick={() => setEditUser(editUser === 'add' ? '' : 'add')}>
+      {editUser !== 'update' && <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => setEditUser(editUser === 'add' ? '' : 'add')}>
         {editUser === 'add' ? 'Chiudi' : 'Aggiungi Utente'}
-      </button>}
-      {editUser === 'update' && <button onClick={() => setEditUser('')}>
-        Chiudi
-      </button>}
+      </Button>}
+      {editUser === 'update' && <Button onClick={() => setEditUser('')} type="button" variant="secondary" > Chiudi </Button>
+      }
       {editUser && <>
 
         <form onSubmit={(e) => {
           e.preventDefault();
           createUser();
         }}>
+
           <input type="text" placeholder="Username" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-          <input type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+          <input className='hidden' type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
           <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
             <option value="guest_italy">Guest Italy</option>
             <option value="guest">Ospite in zona</option>
@@ -109,21 +111,13 @@ const UserManagement = () => {
             <option value="hu">Ungherese</option>
             <option value="en">Inglese</option>
           </select>
-          {editUser === 'add' && <button type="submit">Create User</button>}
-          {editUser === 'update' && <button type="button" onClick={() => updateUser(selectedUser?._id)}>Update User</button>}
+          {editUser === 'add' && <Button variant="primary" type="submit">Create User</Button>}
+          {editUser === 'update' && <Button variant="primary" type="button" onClick={() => updateUser(selectedUser?._id)}>Update User</Button>}
         </form>
       </>}
-      <h1>Lista utenti registrati</h1>
-      <ul>
+      <h2 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h2>
+      <UserList users={users} handleUpdateUser={handleUpdateUser} handleDeleteUser={handleDeleteUser} />
 
-        {users.map(user => (
-          <li key={user._id}>
-            {user.username} ({user.role}) - {user.language}
-            <button onClick={() => handleUpdateUser(user)}>Update</button>
-            <button onClick={() => handleDeleteUser(user)}>Delete</button>
-          </li>
-        ))}
-      </ul>
       {showConfirmation && (
         <ConfirmationDialog
           message="Are you sure you want to delete this user?"

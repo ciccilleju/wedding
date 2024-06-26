@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
+import Button from './Button';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -38,7 +39,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <Button type="submit" variant="primary" > Invia </Button>
       </form>
     </section>
   );
