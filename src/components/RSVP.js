@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const RSVP = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const { t } = useTranslation();
   const [attendance, setAttendance] = useState('');
 
   const handleSubmit = (e) => {

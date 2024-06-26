@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Travel = () => {
+
+  const { t } = useTranslation();
   return (
     <section>
       <h2>Informazioni di Viaggio</h2>

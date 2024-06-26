@@ -1,6 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Gifts = () => {
+
+  const { t } = useTranslation();
+
+
   return (
     <section>
       <h2>Regali</h2>

@@ -1,6 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Schedule = () => {
+
+  const { t } = useTranslation();
+
+
   return (
     <>
       <section>

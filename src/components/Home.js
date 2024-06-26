@@ -1,6 +1,9 @@
 import React from 'react';
 import noi from '../assets/noi.jpeg';
+import { useTranslation } from 'react-i18next';
 const Home = () => {
+
+  const { t } = useTranslation();
   return (
     <section>
       <h2>Benvenuti al Nostro Matrimonio</h2>

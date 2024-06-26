@@ -2,8 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 const PrivateRoute = ({ children, roles }) => {
+
+  const { t } = useTranslation();
   const { user, loading } = useContext(AuthContext);
 
   if (loading) {

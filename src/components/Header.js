@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 
 const Header = () => {
 
-
+  const { t } = useTranslation();
   const { isUserLoggedIn, userRole } = useContext(AuthContext);
 
   useEffect(() => {
@@ -16,35 +17,18 @@ const Header = () => {
 
   return (
     <header>
-      {(userRole === 'guest_hungary') && <>
-        <h1>Üdvözöljük Esküvőnkön</h1>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/details">Részletek</Link></li>
-            <li><Link to="/schedule">Terv</Link></li>
-            <li><Link to="/travel">Utazási információ</Link></li>
-            <li><Link to="/accommodation">Szállás</Link></li>
-            <li><Link to="/gifts">Egy gondolat nekünk</Link></li>
-            <li><Link to="/poi">Látványosság</Link></li>
-            <li><Link to="/rsvp">RSVP</Link></li>
-            <li><Link to="/contact">Kapcsolatok</Link></li>
-            {isUserLoggedIn && <li><Link to="/logout">Logout</Link></li>}
-          </ul>
-        </nav>
-      </>}
-      <h1>Benvenuti al Nostro Matrimonio</h1>
+      <h1>{t('welcome_to_our_wedding')} </h1>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/details">Dettagli</Link></li>
-          <li><Link to="/schedule">Programma</Link></li>
-          <li><Link to="/travel">Informazioni di Viaggio</Link></li>
-          {(userRole === 'admin' || userRole === 'guest_italy') && <li><Link to="/accommodation">Alloggio</Link></li>}
-          <li><Link to="/gifts">Un pensiero per noi</Link></li>
-          <li><Link to="/poi">Punti di Interesse</Link></li>
-          <li><Link to="/rsvp">RSVP</Link></li>
-          <li><Link to="/contact">Contatti</Link></li>
+          <li><Link to="/details">{t('details')}</Link></li>
+          <li><Link to="/schedule">{t('schedule')}</Link></li>
+          <li><Link to="/travel">{t('travel_info')}</Link></li>
+          {(userRole === 'admin' || userRole === 'guest_italy') && <li><Link to="/accommodation">{t('accommodation')}</Link></li>}
+          <li><Link to="/gifts">{t('gifts')}</Link></li>
+          <li><Link to="/poi">{t('poi')}</Link></li>
+          <li><Link to="/rsvp">{t('rsvp')}</Link></li>
+          <li><Link to="/contact">{t('contact')}</Link></li>
           {isUserLoggedIn && <li><Link to="/logout">Logout</Link></li>}
         </ul>
       </nav>

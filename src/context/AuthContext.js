@@ -1,10 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import validateToken from './Validate';
+import { useTranslation } from 'react-i18next';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+
+  const { i18n } = useTranslation();
+
+
   const [user, setUser] = useState(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState('guest');
@@ -36,6 +41,7 @@ const AuthProvider = ({ children }) => {
         setIsUserLoggedIn(true);
         setLoading(false);
         setUserRole(result.user.role);
+        i18n.changeLanguage(result?.user?.language ?? 'it');
       } else {
         logout();
       }
