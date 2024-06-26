@@ -34,7 +34,7 @@ nav a:hover {
 }
 
 main {
-  padding: 2rem;
+  padding: 1rem;
 
 }
 
@@ -58,6 +58,7 @@ form button {
 
 input,
 button,
+textarea,
 select {
   @apply border rounded-md px-4 py-2 outline-none focus:border-blue-500 w-full;
 

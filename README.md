@@ -85,6 +85,7 @@ Install MongoDB:
 brew tap mongodb/brew
 
 brew install mongodb-community@6.0
+brew install mongodb-community
 
 
 Start MongoDB:

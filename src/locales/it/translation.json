@@ -1,11 +1,12 @@
 {
   "welcome": "Benvenuti al nostro sito web di matrimonio!",
-  "welcome_to_our_wedding": "Benvenuti al nostro matrimonio",
+  "happy_to_share_this_day_with_you": "Siamo felicissimi di condividere con voi questo giorno speciale. Grazie per essere parte della nostra vita!",
   "date": "Data",
   "time": "Ora",
   "venue": "Luogo",
   "details": "Dettagli",
   "schedule": "Programma",
+  "intollerances": "Intolleranze alimentari e note varie",
   "travel_info": "Informazioni di viaggio",
   "accommodation": "Alloggio",
   "gifts": "Un pensiero per noi",
