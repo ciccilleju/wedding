@@ -6,7 +6,11 @@ const usersRoutes = require('./routes/users');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/wedding', {
+const localUri = "mongodb://localhost:27017/wedding";
+
+//const uri = "mongodb+srv://mionomeutente:Jupb4a9XudXDkQO4@cluster0.oocdgzx.mongodb.net/?appName=Cluster0";
+
+mongoose.connect(localUri, {
 }).then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {
