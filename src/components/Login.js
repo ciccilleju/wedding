@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <section>
-      <h2>Login</h2>
+      <h2 className="text-3xl font-bold underline">Login</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input

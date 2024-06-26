@@ -9,7 +9,7 @@ const Schedule = () => {
   return (
     <>
       <section>
-        <h2>Programma della Giornata</h2>
+        <h2 className="text-3xl font-bold underline">Programma della Giornata</h2>
         <p>esempio</p>
       </section>
 

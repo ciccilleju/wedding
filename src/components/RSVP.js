@@ -13,7 +13,7 @@ const RSVP = () => {
 
   return (
     <section>
-      <h2>RSVP</h2>
+      <h2 className="text-3xl font-bold underline">RSVP</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">{t('name')}:</label>
         <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />

@@ -83,7 +83,7 @@ const UserManagement = () => {
 
   return (
     <div>
-      <h2>User Management</h2>
+      <h2 className="text-3xl font-bold underline">User Management</h2>
       {editUser !== 'update' && <button onClick={() => setEditUser(editUser === 'add' ? '' : 'add')}>
         {editUser === 'add' ? 'Chiudi' : 'Aggiungi Utente'}
       </button>}

@@ -21,6 +21,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -34,11 +35,15 @@ nav a:hover {
 
 main {
   padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 section {
   margin-bottom: 2rem;
 }
+
+
 
 form label {
   display: block;
@@ -50,4 +55,11 @@ form select,
 form button {
   display: block;
   margin-top: 0.5rem;
+}
+
+input,
+button,
+select {
+  @apply border rounded-md px-4 py-2 outline-none focus:border-blue-500;
+  min-width: 200px;
 }

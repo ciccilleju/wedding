@@ -7,7 +7,7 @@ const Contact = () => {
 
   return (
     <section>
-      <h2>{t('contact')}</h2>
+      <h2 className="text-3xl font-bold underline">{t('contact')}</h2>
       <p>Per qualsiasi domanda, contattaci a: [tuo-email]@esempio.com</p>
     </section>
   );

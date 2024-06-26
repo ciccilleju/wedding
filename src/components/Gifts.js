@@ -8,7 +8,7 @@ const Gifts = () => {
 
   return (
     <section>
-      <h2>Regali</h2>
+      <h2 className="text-3xl font-bold underline">Regali</h2>
       <p>Conto Bancario: 123456789</p>
     </section>
   );

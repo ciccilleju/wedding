@@ -8,7 +8,7 @@ const AccommodationHungary = () => {
 
   return (
     <section>
-      <h2>{t('accommodation')}</h2>
+      <h2 className="text-3xl font-bold underline">{t('accommodation')}</h2>
       <p>{t('suggestet_hotels')}</p>
 
       la notte del vostro arrivo e la notte del matrimonio, se lo vorrete, sarete nostri ospiti presso l'hotel XXXX
