@@ -11,5 +11,9 @@
   "gifts": "Ajándékok",
   "poi": "Érdekes helyek",
   "rsvp": "RSVP",
-  "contact": "Kapcsolat"
+  "contact": "Kapcsolat",
+  "name": "Name",
+  "phone": "Phone",
+  "attendance": "Parteciperai",
+  "guests": "Quante persone"
 }

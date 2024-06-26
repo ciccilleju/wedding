@@ -12,5 +12,9 @@
   "gifts": "Gifts",
   "poi": "Points of Interest",
   "rsvp": "RSVP",
-  "contact": "Contact"
+  "contact": "Contact",
+  "name": "Name",
+  "phone": "Phone",
+  "attendance": "Will you come?",
+  "guests": "How many?"
 }

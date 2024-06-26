@@ -15,6 +15,7 @@ import { AuthProvider } from './context/AuthContext';
 import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 import Logout from './components/Logout';
+import AccommodationHungary from './components/AccommodationHungary';
 
 
 
@@ -44,8 +45,13 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/accommodation" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
+              <PrivateRoute roles={['guest_italy', 'admin']}>
                 <Accommodation />
+              </PrivateRoute>
+            } />
+            <Route path="/accommodation-hungary" element={
+              <PrivateRoute roles={['guest_hungary', 'admin']}>
+                <AccommodationHungary />
               </PrivateRoute>
             } />
             <Route path="/gifts" element={
