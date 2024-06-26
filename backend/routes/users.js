@@ -16,9 +16,21 @@ router.post('/', async (req, res) => {
 
 // Get all users
 router.get('/', async (req, res) => {
+  const { page = 1, limit = 3 } = req.query;
+
   try {
-    const users = await User.find();
-    res.json(users);
+    const users = await User.find()
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .exec();
+
+    const count = await User.countDocuments();
+
+    res.json({
+      users,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page
+    });
   } catch (err) {
     res.status(500).send('Server error');
   }

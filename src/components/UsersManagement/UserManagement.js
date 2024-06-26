@@ -12,16 +12,31 @@ const UserManagement = () => {
 
   const [selectedUser, setSelectedUser] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await axios.get('/api/users', {
+        params: { page: currentPage, limit: 5 }
+      });
+      setUsers(response.data.users);
+      setTotalPages(response.data.totalPages);
+    };
+    console.log(totalPages);
     fetchUsers();
   }, []);
 
-  const fetchUsers = async () => {
-    try {
-      const response = await axios.get('/api/users');
-      setUsers(response.data);
-    } catch (error) {
-      console.error('Error fetching users:', error);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -117,7 +132,22 @@ const UserManagement = () => {
       </>}
       <h2 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h2>
       <UserList users={users} handleUpdateUser={handleUpdateUser} handleDeleteUser={handleDeleteUser} />
-
+      <div className="flex justify-between mt-4">
+        <button
+          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button
+          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
       {showConfirmation && (
         <ConfirmationDialog
           message="Are you sure you want to delete this user?"
