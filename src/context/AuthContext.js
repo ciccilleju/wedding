@@ -7,6 +7,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState('guest');
   const [loading, setLoading] = useState(true);
 
   const login = async (username, password) => {
@@ -16,6 +17,7 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem('token', response.data.token);
     setIsUserLoggedIn(true);
     setLoading(false);
+    setUserRole(response.data.role);
   };
 
   const logout = () => {
@@ -33,6 +35,7 @@ const AuthProvider = ({ children }) => {
         setUser(result.user);
         setIsUserLoggedIn(true);
         setLoading(false);
+        setUserRole(result.user.role);
       } else {
         logout();
       }
@@ -42,7 +45,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, isUserLoggedIn }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, isUserLoggedIn, userRole }}>
       {children}
     </AuthContext.Provider>
   );

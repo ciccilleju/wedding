@@ -18,12 +18,7 @@ import Logout from './components/Logout';
 
 
 
-
-
-
 function App() {
-
-
 
   return (
     <AuthProvider>
@@ -34,42 +29,42 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/details" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Details />
               </PrivateRoute>
             } />
             <Route path="/schedule" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Schedule />
               </PrivateRoute>
             } />
             <Route path="/travel" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Travel />
               </PrivateRoute>
             } />
             <Route path="/accommodation" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Accommodation />
               </PrivateRoute>
             } />
             <Route path="/gifts" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Gifts />
               </PrivateRoute>
             } />
             <Route path="/poi" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <POI />
               </PrivateRoute>
             } />
             <Route path="/rsvp" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <RSVP />
               </PrivateRoute>
             } />
             <Route path="/contact" element={
-              <PrivateRoute roles={['guest', 'admin']}>
+              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
                 <Contact />
               </PrivateRoute>
             } />
