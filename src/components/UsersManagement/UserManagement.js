@@ -87,6 +87,9 @@ const UserManagement = () => {
       {editUser !== 'update' && <button onClick={() => setEditUser(editUser === 'add' ? '' : 'add')}>
         {editUser === 'add' ? 'Chiudi' : 'Aggiungi Utente'}
       </button>}
+      {editUser === 'update' && <button onClick={() => setEditUser('')}>
+        Chiudi
+      </button>}
       {editUser && <>
 
         <form onSubmit={(e) => {
