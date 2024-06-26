@@ -18,14 +18,14 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await axios.get('/api/users', {
-        params: { page: currentPage, limit: 5 }
+        params: { page: currentPage, limit: 3 }
       });
       setUsers(response.data.users);
       setTotalPages(response.data.totalPages);
     };
     console.log(totalPages);
     fetchUsers();
-  }, []);
+  }, [users]);
 
 
   const handleNextPage = () => {
@@ -113,14 +113,18 @@ const UserManagement = () => {
           createUser();
         }}>
 
+          <label>Username</label>
           <input type="text" placeholder="Username" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+
           <input className='hidden' type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+          <label>Guest Type</label>
           <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
             <option value="guest_italy">Guest Italy</option>
             <option value="guest">Ospite in zona</option>
             <option value="guest_hungary">Guest Hungary</option>
             <option value="admin">Admin</option>
           </select>
+          <label>Language</label>
           <select value={formData.language} onChange={(e) => setFormData({ ...formData, language: e.target.value })}>
             <option value="it">Italiano</option>
             <option value="hu">Ungherese</option>
@@ -133,20 +137,26 @@ const UserManagement = () => {
       <h2 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h2>
       <UserList users={users} handleUpdateUser={handleUpdateUser} handleDeleteUser={handleDeleteUser} />
       <div className="flex justify-between mt-4">
-        <button
-          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        <Button
+          classes="w-1/3 mr-2"
+          variant={currentPage === 1 ? 'disabled' : 'primary'}
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
         >
           Previous
-        </button>
-        <button
-          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        </Button>
+        <div className='w-1/3 text-center'>
+
+          Page {currentPage} of {totalPages}
+        </div>
+        <Button
+          classes="w-1/3 mr-2"
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
+          variant={currentPage === totalPages ? 'disabled' : 'primary'}
         >
           Next
-        </button>
+        </Button>
       </div>
       {showConfirmation && (
         <ConfirmationDialog
