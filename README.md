@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## MONGO DB BACKEND PART ##
+
+
+Step 1: Install and Start MongoDB
+It looks like you don’t have MongoDB installed or it's not accessible from your terminal. You can install MongoDB using Homebrew (if you don't have Homebrew installed, follow the installation instructions here):
+
+Install Homebrew (if not already installed):
+
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+Install MongoDB:
+
+brew tap mongodb/brew
+
+brew install mongodb-community@6.0
+
+
+Start MongoDB:
+
+brew services start mongodb/brew/mongodb-community
+
+Verify MongoDB is Running:
+
+mongo --version
+

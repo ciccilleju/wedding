@@ -25,7 +25,7 @@ const UserManagement = () => {
     };
     console.log(totalPages);
     fetchUsers();
-  }, [users]);
+  }, [currentPage]);
 
 
   const handleNextPage = () => {
@@ -116,7 +116,7 @@ const UserManagement = () => {
           <label>Username</label>
           <input type="text" placeholder="Username" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
 
-          <input className='hidden' type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+          <input className={editUser === 'update' ? 'hidden' : ''} type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
           <label>Guest Type</label>
           <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
             <option value="guest_italy">Guest Italy</option>
