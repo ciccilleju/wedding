@@ -21,6 +21,8 @@ import Tonnara from './components/POI/Tonnara/Tonnara';
 import Aspromonte from './components/POI/Aspromonte/Aspromonte';
 import ReggioCalabria from './components/POI/ReggioCalabria/ReggioCalabria';
 import Tropea from './components/POI/Tropea/Tropea';
+import Scilla from './components/POI/Scilla/Scilla';
+import CapoVaticano from './components/POI/CapoVaticano/CapoVaticano';
 
 
 
@@ -70,6 +72,12 @@ function App() {
             } />
             <Route path="/tropea" element={
               <Tropea />
+            } />
+            <Route path="/scilla" element={
+              <Scilla />
+            } />
+            <Route path="/capo-vaticano" element={
+              <CapoVaticano />
             } />
             <Route path="/rsvp" element={
               <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>

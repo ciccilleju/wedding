@@ -5,6 +5,8 @@ import Card from '../Card/Card';
 import tonnara from '../../assets/POI/tonnara/tonnara01.jpg';
 import reggio from '../../assets/POI/reggio/reggio.jpg';
 import tropea from '../../assets/POI/tropea/tropea.jpg';
+import scilla from '../../assets/POI/scilla/scilla01.jpg';
+import capovaticano from '../../assets/POI/capovaticano/capovaticano01.webp';
 import aspromonte from '../../assets/POI/aspromonte/aspromonte01.jpg';
 import { Link } from 'react-router-dom';
 
@@ -44,16 +46,16 @@ const POI = () => {
             title='Tropea' tag="borghi"
             text='un incanto sul mare' caption={'Tropea'} imgSrc={tropea} />
         </Link>
-        <Link to="/aspromonte">
+        <Link to="/scilla">
           <Card
             size={'l'}
-            title="Il parco nazionale dell'Aspromonte" tag="montagna"
-            text='un testo di prova' caption={'Aspromonte'} imgSrc={aspromonte} />
+            title="Scilla" tag="borghi"
+            text='Un borgo a strapiombo sul mare della Costa Viola' caption={'Scilla'} imgSrc={scilla} />
         </Link>
-        <Link to="/aspromonte">
+        <Link to="/capo-vaticano">
           <Card
-            title="Il parco nazionale dell'Aspromonte" tag="montagna"
-            text='un testo di prova' caption={'Aspromonte'} imgSrc={aspromonte} />
+            title="Capo Vaticano" tag="mare"
+            text='Una terrazza naturale sulla Costa degli Dei' caption={'Capo Vaticano'} imgSrc={capovaticano} />
         </Link>
       </div>
     </div>
