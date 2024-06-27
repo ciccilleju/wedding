@@ -7,7 +7,7 @@ import Schedule from './components/Schedule';
 import Travel from './components/Travel';
 import Accommodation from './components/Accommodation';
 import Gifts from './components/Gifts';
-import POI from './components/POI';
+import POI from './components/POI/POI';
 import RSVP from './components/RSVP';
 import Contact from './components/Contact';
 import Login from './components/Login';
@@ -17,6 +17,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Logout from './components/Logout';
 import AccommodationHungary from './components/AccommodationHungary';
 import UserManagement from './components/UsersManagement/UserManagement';
+import Tonnara from './components/POI/Tonnara/Tonnara';
+import Aspromonte from './components/POI/Aspromonte/Aspromonte';
 
 
 
@@ -54,6 +56,12 @@ function App() {
             } />
             <Route path="/poi" element={
               <POI />
+            } />
+            <Route path="/tonnara" element={
+              <Tonnara />
+            } />
+            <Route path="/aspromonte" element={
+              <Aspromonte />
             } />
             <Route path="/rsvp" element={
               <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>

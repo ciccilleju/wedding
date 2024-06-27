@@ -38,10 +38,15 @@ main {
 
 }
 
+@media screen and (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+}
+
 section {
   margin-bottom: 2rem;
 }
-
 
 
 form label {
@@ -62,4 +67,8 @@ textarea,
 select {
   @apply border rounded-md px-4 py-2 outline-none focus:border-blue-500 w-full;
 
+}
+
+p {
+  @apply text-lg text-gray-700 mb-4;
 }
