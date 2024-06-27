@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import noi from '../assets/noi.jpeg';
 import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../context/AuthContext';
-
+import { Link } from 'react-router-dom';
 const Home = () => {
   const { t } = useTranslation();
   const { user } = useContext(AuthContext);
@@ -15,6 +15,9 @@ const Home = () => {
       </h2>
       <p className="text-lg md:text-xl text-center text-gray-600 mb-8">
         Ciao {user?.firstName}, {t('happy_to_share_this_day_with_you')}
+      </p>
+      <p className="text-lg md:text-xl text-center text-gray-600 mb-8">{t('please_check_your_rsvp')}
+        <Link to="/RSVP" className="text-blue-500 underline  ml-2">{t('qui')}</Link>
       </p>
       <img
         src={noi}
