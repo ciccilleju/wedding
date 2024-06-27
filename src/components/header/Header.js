@@ -20,7 +20,7 @@ const Header = () => {
       <h1>{t('welcome_to_our_wedding')} </h1>
       <nav>
         <ul>
-          <li><Link to="/">HOME</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/details">{t('details')}</Link></li>
           <li><Link to="/schedule">{t('schedule')}</Link></li>
           {(userRole === 'admin'

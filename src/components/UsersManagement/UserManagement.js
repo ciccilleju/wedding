@@ -3,17 +3,17 @@ import axios from 'axios';
 import ConfirmationDialog from '../UI/Dialog';
 import UserList from './UsersList';
 import Button from '../Button';
+import UserFormModal from './UserFormModal';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
   const [editUser, setEditUser] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
-
   const [selectedUser, setSelectedUser] = useState(null);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal open/close
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -23,7 +23,6 @@ const UserManagement = () => {
       setUsers(response.data.users);
       setTotalPages(response.data.totalPages);
     };
-
     fetchUsers();
   }, [currentPage]);
 
@@ -44,7 +43,7 @@ const UserManagement = () => {
       const response = await axios.post('/api/users', formData);
       setUsers([...users, response.data]);
       setFormData({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
-      setEditUser('');
+      setIsModalOpen(false);
     } catch (error) {
       console.error('Error creating user:', error);
     }
@@ -56,37 +55,35 @@ const UserManagement = () => {
       const updatedUsers = users.map(user => (user._id === selectedUser._id ? response.data : user));
       setUsers(updatedUsers);
       setSelectedUser(null);
+      setIsModalOpen(false);
     } catch (error) {
       console.error('Error updating user:', error);
     }
   };
 
-  const deleteUser = async () => {
-    try {
-      setShowConfirmation(false); // Hide dialog after delete
-      await axios.delete(`/api/users/${selectedUser._id}`);
-      const updatedUsers = users.filter((user) => user._id !== selectedUser._id);
-      setUsers(updatedUsers);
-      setSelectedUser(null);
-    } catch (error) {
-      console.error('Error deleting user:', error);
-    }
-  };
-
-  const handleUpdateUser = async (user) => {
+  const handleUpdateUser = (user) => {
     setEditUser('update');
     setSelectedUser(user);
-    const userToUpdate = user;
-    setFormData({ username: userToUpdate.username, password: userToUpdate.password, role: userToUpdate.role, language: userToUpdate.language, attendance: userToUpdate.attendance, guests: userToUpdate.guests, notes: userToUpdate.notes });
-  }
-  const handleDeleteUser = async (user) => {
+    setFormData({ username: user.username, role: user.role, language: user.language, attendance: user.attendance, guests: user.guests, notes: user.notes });
+    setIsModalOpen(true); // Open the modal
+  };
+
+  const handleDeleteUser = (user) => {
     setSelectedUser(user);
     setShowConfirmation(true);
-  }
+  };
 
-  const confirmDeleteUser = () => {
+  const confirmDeleteUser = async () => {
     if (selectedUser) {
-      deleteUser(selectedUser._id);
+      try {
+        await axios.delete(`/api/users/${selectedUser._id}`);
+        const updatedUsers = users.filter((user) => user._id !== selectedUser._id);
+        setUsers(updatedUsers);
+        setSelectedUser(null);
+        setShowConfirmation(false);
+      } catch (error) {
+        console.error('Error deleting user:', error);
+      }
     }
   };
 
@@ -95,69 +92,25 @@ const UserManagement = () => {
     setShowConfirmation(false);
   };
 
-
-
   return (
     <div>
       <h2 className="text-3xl font-bold underline">User Management</h2>
-      {editUser !== 'update' && <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => setEditUser(editUser === 'add' ? '' : 'add')}>
-        {editUser === 'add' ? 'Chiudi' : 'Aggiungi Utente'}
-      </Button>}
-      {editUser === 'update' && <Button onClick={() => setEditUser('')} type="button" variant="secondary" > Chiudi </Button>
-      }
-      {editUser && <>
-
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          createUser();
-        }}>
-
-          <label>Username</label>
-          <input type="text" placeholder="Username" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-
-          <input className={editUser === 'update' ? 'hidden' : ''} type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-          <label>Guest Type</label>
-          <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
-            <option value="guest_italy">Guest Italy</option>
-            <option value="guest">Ospite in zona</option>
-            <option value="guest_hungary">Guest Hungary</option>
-            <option value="admin">Admin</option>
-          </select>
-          <label>Language</label>
-          <select value={formData.language} onChange={(e) => setFormData({ ...formData, language: e.target.value })}>
-            <option value="it">Italiano</option>
-            <option value="hu">Ungherese</option>
-            <option value="en">Inglese</option>
-          </select>
-          {editUser === 'update' && <>
-
-            <label>Attendance</label>
-            <select
-              id="attendance"
-              value={formData.attendance}
-              onChange={(e) => setFormData({ ...formData, attendance: e.target.value === 'true' })}
-            >
-              <option value=""></option>
-              <option value={true}>Sì</option>
-              <option value={false}>No</option>
-
-
-            </select>
-
-            {formData.attendance && <>
-              <label>Guests</label>
-              <input type="number" placeholder="Number of guests" value={formData.guests} onChange={(e) => setFormData({ ...formData, guests: e.target.value })} />
-
-              <label>Intollerances and Notes:</label>
-              <textarea type="text" placeholder="Intollerances and Notes" value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} />
-
-            </>}
-
-          </>}
-          {editUser === 'add' && <Button variant="primary" type="submit">Create User</Button>}
-          {editUser === 'update' && <Button variant="primary" type="button" onClick={() => updateUser(selectedUser?._id)}>Update User</Button>}
-        </form>
-      </>}
+      <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => { setIsModalOpen(true); setEditUser(editUser === 'add' ? '' : 'add') }}>
+        Aggiungi Utente
+      </Button>
+      {isModalOpen && (<UserFormModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false); // Close the modal
+          setEditUser('');
+          setFormData({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
+        }}
+        formData={formData}
+        setFormData={setFormData}
+        editUser={editUser}
+        createUser={createUser}
+        updateUser={updateUser}
+      />)}
       <h2 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h2>
       <UserList users={users} handleUpdateUser={handleUpdateUser} handleDeleteUser={handleDeleteUser} />
       <div className="flex justify-between mt-4">
@@ -170,7 +123,6 @@ const UserManagement = () => {
           Previous
         </Button>
         <div className='w-1/3 text-center'>
-
           Page {currentPage} of {totalPages}
         </div>
         <Button
