@@ -4,9 +4,9 @@ const User = require('../models/User');
 
 // Create a user
 router.post('/', async (req, res) => {
-  const { username, password, role, language, attendance, notes, guests } = req.body;
+  const { username, password, role, language, attendance, notes, guests, firstName, lastName } = req.body;
   try {
-    const user = new User({ username, password, role, language, attendance, notes, guests });
+    const user = new User({ username, password, role, language, attendance, notes, guests, firstName, lastName });
     await user.save();
     res.status(201).json(user);
   } catch (err) {
@@ -38,9 +38,9 @@ router.get('/', async (req, res) => {
 
 // Update a user by ID
 router.put('/:id', async (req, res) => {
-  const { username, password, role, language, attendance, notes, guests } = req.body;
+  const { username, password, role, language, attendance, notes, guests, firstName, lastName } = req.body;
   try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, { username, password, role, language, attendance, notes, guests }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, { username, password, role, language, attendance, notes, guests, firstName, lastName }, { new: true });
     res.json(updatedUser);
   } catch (err) {
     res.status(400).send(err.message);

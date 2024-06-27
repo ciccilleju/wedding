@@ -10,6 +10,8 @@ const RSVP = () => {
 
   const [formData, setFormData] = useState({
     name: '',
+    firstName: '',
+    lastName: '',
     attendance: '',
     guests: 0,
     notes: ''
@@ -27,6 +29,8 @@ const RSVP = () => {
       setFormData(prevState => ({
         ...prevState,
         name: user.username,
+        firstName: user.firstName,
+        lastName: user.lastName,
         attendance: user.attendance
       }));
     }
@@ -59,7 +63,7 @@ const RSVP = () => {
           type="text"
           disabled
           id="name"
-          value={formData.name}
+          value={formData.firstName + ' ' + formData.lastName}
           onChange={handleChange}
           required
         />
