@@ -4,7 +4,7 @@ const User = require('../models/User');
 const verifyToken = require('./validate-token');
 
 const router = express.Router();
-const secret = 'your_jwt_secret';
+const secret = process.env.JWT_SECRET;
 
 router.post('/register', async (req, res) => {
   const { username, password, role } = req.body;

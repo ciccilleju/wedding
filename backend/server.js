@@ -7,6 +7,7 @@ const usersRoutes = require('./routes/users');
 const app = express();
 app.use(express.json());
 
+
 //const localUri = "mongodb://localhost:27017/wedding";
 const uri = process.env.MONGODB_URI;
 
