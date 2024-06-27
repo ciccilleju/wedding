@@ -29,12 +29,7 @@ const RSVP = () => {
       console.log(user);
       setFormData(prevState => ({
         ...prevState,
-        name: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        guests: user.guests,
-        guests_children: user.guests_children,
-        attendance: user.attendance
+        ...user
       }));
     }
   }, [user]);
