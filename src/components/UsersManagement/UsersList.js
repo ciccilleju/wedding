@@ -15,6 +15,7 @@ const UserList = ({ users, handleUpdateUser, handleDeleteUser }) => {
               {user.attendance && <>
                 <p className="text-gray-600">Attendance: {user.attendance ? 'Yes' : 'No'}</p>
                 <p className="text-gray-600">Guests: {user.guests}</p>
+                <p className="text-gray-600">Children: {user.guests_children}</p>
                 <p className="text-gray-600">Intollerances: {user.notes}</p>
               </>}
             </div>

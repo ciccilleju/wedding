@@ -18,5 +18,6 @@
   "name": "Name",
   "phone": "Phone",
   "attendance": "Will you come?",
-  "guests": "How many?"
+  "guests": "How many?",
+  "guests_children": "How many children?"
 }

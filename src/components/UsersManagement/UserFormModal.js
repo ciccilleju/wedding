@@ -135,6 +135,15 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
                     onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
+                  <label htmlFor="guests_children" className="block text-gray-700 text-sm font-bold mb-2 mt-4">Quanti Bambini</label>
+                  <input
+                    id="guests_children"
+                    type="number"
+                    placeholder="Number of children"
+                    value={formData.guests_children}
+                    onChange={(e) => setFormData({ ...formData, guests_children: e.target.value })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
 
                   <label htmlFor="notes" className="block text-gray-700 text-sm font-bold mb-2 mt-4">Intollerances and Notes:</label>
                   <textarea

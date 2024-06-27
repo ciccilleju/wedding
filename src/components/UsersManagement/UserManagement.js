@@ -7,7 +7,7 @@ import UserFormModal from './UserFormModal';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({ username: '', firstName: '', lastName: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
+  const [formData, setFormData] = useState({ username: '', firstName: '', lastName: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, guests_children: 0, notes: '' });
   const [editUser, setEditUser] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -42,7 +42,7 @@ const UserManagement = () => {
     try {
       const response = await axios.post('/api/users', formData);
       setUsers([...users, response.data]);
-      setFormData({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
+      setFormData({ username: '', password: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, guests_children: 0, notes: '' });
       setIsModalOpen(false);
 
     } catch (error) {
@@ -65,7 +65,7 @@ const UserManagement = () => {
   const handleUpdateUser = (user) => {
     setEditUser('update');
     setSelectedUser(user);
-    setFormData({ username: user.username, firstName: user.firstName, lastName: user.lastName, role: user.role, language: user.language, attendance: user.attendance, guests: user.guests, notes: user.notes });
+    setFormData({ username: user.username, firstName: user.firstName, lastName: user.lastName, role: user.role, language: user.language, attendance: user.attendance, guests: user.guests, guests_children: user.guests_children, notes: user.notes });
     setIsModalOpen(true); // Open the modal
   };
 
@@ -108,7 +108,7 @@ const UserManagement = () => {
         onClose={() => {
           setIsModalOpen(false); // Close the modal
           setEditUser('');
-          setFormData({ username: '', password: '', firstName: '', lastName: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, notes: '' });
+          setFormData({ username: '', password: '', firstName: '', lastName: '', role: 'guest_italy', language: 'it', attendance: false, guests: 0, guests_children: 0, notes: '' });
         }}
         formData={formData}
         setFormData={setFormData}

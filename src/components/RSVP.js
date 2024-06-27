@@ -14,6 +14,7 @@ const RSVP = () => {
     lastName: '',
     attendance: '',
     guests: 0,
+    guests_children: 0,
     notes: ''
   });
 
@@ -31,6 +32,8 @@ const RSVP = () => {
         name: user.username,
         firstName: user.firstName,
         lastName: user.lastName,
+        guests: user.guests,
+        guests_children: user.guests_children,
         attendance: user.attendance
       }));
     }
@@ -90,16 +93,23 @@ const RSVP = () => {
             >
               <option value="1">1</option>
               <option value="2">2</option>
+
+            </select>
+            <label htmlFor="guests_children">{t('guests_children')}?</label>
+            <select
+              id="guests_children"
+              value={formData.guests_children}
+              onChange={handleChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
               <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
             </select>
             <label htmlFor="notes">{t('notes')}:</label>
             <textarea
               id="notes"
               value={formData.notes}
               onChange={handleChange}
-              required
             />
           </>
         )}

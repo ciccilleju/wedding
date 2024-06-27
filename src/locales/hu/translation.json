@@ -17,5 +17,6 @@
   "name": "Name",
   "phone": "Phone",
   "attendance": "Parteciperai",
-  "guests": "Quante persone"
+  "guests": "Quante persone",
+  "guests_children": "Quanti bambini?"
 }
