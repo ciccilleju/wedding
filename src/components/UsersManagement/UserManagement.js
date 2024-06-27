@@ -18,7 +18,7 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await axios.get('/api/users', {
-        params: { page: currentPage, limit: 3 }
+        params: { page: currentPage, limit: 5 }
       });
       setUsers(response.data.users);
       setTotalPages(response.data.totalPages);

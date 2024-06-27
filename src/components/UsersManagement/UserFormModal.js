@@ -39,6 +39,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
               id="username"
               type="text"
               placeholder="Username"
+              required
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -48,6 +49,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
             <label htmlFor="firstName" className="block text-gray-700 text-sm font-bold mb-2">First Name</label>
             <input
               id="firstName"
+              required
               type="text"
               placeholder="First Name"
               value={formData.firstName}
@@ -60,6 +62,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
             <input
               id="lastName"
               type="text"
+              required
               placeholder="Last Name"
               value={formData.lastName}
               onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
@@ -72,6 +75,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
               <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password</label>
               <input
                 id="password"
+                required
                 type="password"
                 placeholder="Password"
                 value={formData.password}
