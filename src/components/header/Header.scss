@@ -1,0 +1,9 @@
+.language-switcher {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+
+  & span img {
+    width: 24px;
+  }
+}

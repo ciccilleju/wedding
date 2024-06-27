@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
@@ -6,11 +7,10 @@ const usersRoutes = require('./routes/users');
 const app = express();
 app.use(express.json());
 
-const localUri = "mongodb://localhost:27017/wedding";
+//const localUri = "mongodb://localhost:27017/wedding";
+const uri = process.env.MONGODB_URI;
 
-//const uri = "mongodb+srv://mionomeutente:Jupb4a9XudXDkQO4@cluster0.oocdgzx.mongodb.net/?appName=Cluster0";
-
-mongoose.connect(localUri, {
+mongoose.connect(uri, {
 }).then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => {

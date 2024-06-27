@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import Home from './components/Home';
 import Details from './components/Details';
 import Schedule from './components/Schedule';
