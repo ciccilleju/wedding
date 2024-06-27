@@ -31,19 +31,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/details" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <Details />
-              </PrivateRoute>
+              <Details />
             } />
             <Route path="/schedule" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <Schedule />
-              </PrivateRoute>
+              <Schedule />
             } />
             <Route path="/travel" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <Travel />
-              </PrivateRoute>
+              <Travel />
             } />
             <Route path="/accommodation" element={
               <PrivateRoute roles={['guest_italy', 'admin']}>
@@ -56,14 +50,10 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/gifts" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <Gifts />
-              </PrivateRoute>
+              <Gifts />
             } />
             <Route path="/poi" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <POI />
-              </PrivateRoute>
+              <POI />
             } />
             <Route path="/rsvp" element={
               <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
@@ -71,9 +61,7 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/contact" element={
-              <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
-                <Contact />
-              </PrivateRoute>
+              <Contact />
             } />
             <Route path="/logout" element={<Logout />} />
             <Route path="/users" element={
