@@ -93,11 +93,15 @@ const UserManagement = () => {
   };
 
   return (
-    <div>
+    <>
       <h2 className="text-3xl font-bold underline">User Management</h2>
-      <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => { setIsModalOpen(true); setEditUser(editUser === 'add' ? '' : 'add') }}>
-        Aggiungi Utente
-      </Button>
+      <div className="flex justify-end">
+        <div className="w-1/6">
+          <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => { setIsModalOpen(true); setEditUser(editUser === 'add' ? '' : 'add') }}>
+            Aggiungi Utente
+          </Button>
+        </div>
+      </div>
       {isModalOpen && (<UserFormModal
         isOpen={isModalOpen}
         onClose={() => {
@@ -141,7 +145,7 @@ const UserManagement = () => {
           onCancel={cancelDeleteUser}
         />
       )}
-    </div>
+    </>
   );
 };
 
