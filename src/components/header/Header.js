@@ -2,18 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
-import enFlag from '../../assets/flags/en-flag.png';
-import itFlag from '../../assets/flags/it-flag.png';
-import huFlag from '../../assets/flags/hu-flag.png';
+
 import './Header.scss';
+import LangFlags from './LangFlags';
 
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { isUserLoggedIn, userRole } = useContext(AuthContext);
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+
 
   return (
     <header>
@@ -38,17 +35,7 @@ const Header = () => {
           {!isUserLoggedIn && <li><Link to="/login">Login</Link></li>}
         </ul>
       </nav>
-      <div className="language-switcher">
-        <span onClick={() => changeLanguage('en')}>
-          <img src={enFlag} alt="English" />
-        </span>
-        <span onClick={() => changeLanguage('it')}>
-          <img src={itFlag} alt="Italiano" />
-        </span>
-        <span onClick={() => changeLanguage('hu')}>
-          <img src={huFlag} alt="Magyar" />
-        </span>
-      </div>
+      <LangFlags />
     </header>
   );
 };
