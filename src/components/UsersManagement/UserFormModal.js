@@ -126,7 +126,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
 
               {formData.attendance && (
                 <>
-                  <label htmlFor="guests" className="block text-gray-700 text-sm font-bold mb-2 mt-4">Guests</label>
+                  <label htmlFor="guests" className="block text-gray-700 text-sm font-bold mb-2 mt-4">Quanti adulti?</label>
                   <input
                     id="guests"
                     type="number"

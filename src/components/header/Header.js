@@ -33,8 +33,8 @@ const Header = () => {
           <li><Link to="/poi">{t('poi')}</Link></li>
           <li><Link to="/rsvp">{t('rsvp')}</Link></li>
           <li><Link to="/contact">{t('contact')}</Link></li>
-          {isUserLoggedIn && <li><Link to="/logout">Logout</Link></li>}
           {userRole === 'admin' && <li><Link to="/users">Users Managements</Link></li>}
+          {isUserLoggedIn && <li><Link to="/logout">Logout</Link></li>}
         </ul>
       </nav>
       <div className="language-switcher">
