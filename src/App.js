@@ -19,6 +19,8 @@ import AccommodationHungary from './components/AccommodationHungary';
 import UserManagement from './components/UsersManagement/UserManagement';
 import Tonnara from './components/POI/Tonnara/Tonnara';
 import Aspromonte from './components/POI/Aspromonte/Aspromonte';
+import ReggioCalabria from './components/POI/ReggioCalabria/ReggioCalabria';
+import Tropea from './components/POI/Tropea/Tropea';
 
 
 
@@ -62,6 +64,12 @@ function App() {
             } />
             <Route path="/aspromonte" element={
               <Aspromonte />
+            } />
+            <Route path="/reggio-calabria" element={
+              <ReggioCalabria />
+            } />
+            <Route path="/tropea" element={
+              <Tropea />
             } />
             <Route path="/rsvp" element={
               <PrivateRoute roles={['guest', 'guest_italy', 'guest_hungary', 'admin']}>
