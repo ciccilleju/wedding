@@ -17,8 +17,7 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md">
-      <div className="container mx-auto flex justify-center items-center py-4 px-6">
-
+      <div className="container mx-auto flex justify-center items-center py-6 lg:py-4 px-6">
         <span
           className="md:hidden text-gray-800 focus:outline-none absolute top-4 right-4"
           onClick={toggleMenu}
@@ -33,7 +32,7 @@ const Header = () => {
           </svg>
         </span>
         <nav className={`md:flex md:items-center md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} w-full md:w-auto`}>
-          <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+          <ul onClick={toggleMenu} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
             <li>
               <Link to="/" className="text-gray-600 hover:text-blue-600 transition duration-300">
                 Home
