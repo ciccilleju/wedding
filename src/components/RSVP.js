@@ -53,69 +53,71 @@ const RSVP = () => {
   };
 
   return (
-    <section>
-      <h2 className="text-3xl font-bold underline">RSVP</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">{t('name')}:</label>
-        <input
-          type="text"
-          disabled
-          id="name"
-          value={formData.firstName + ' ' + formData.lastName}
-          onChange={handleChange}
-          required
-        />
+    <div className="p-6 bg-gray-50 min-h-screen">
 
-        <label htmlFor="attendance">{t('attendance')}?</label>
-        <select
-          id="attendance"
-          value={formData.attendance}
-          onChange={handleChange}
-        >
-          <option value=""></option>
-          <option value={true}>Sì</option>
-          <option value={false}>No</option>
+      <section>
+        <h2>RSVP</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">{t('name')}:</label>
+          <input
+            type="text"
+            disabled
+            id="name"
+            value={formData.firstName + ' ' + formData.lastName}
+            onChange={handleChange}
+            required
+          />
 
-        </select>
+          <label htmlFor="attendance">{t('attendance')}?</label>
+          <select
+            id="attendance"
+            value={formData.attendance}
+            onChange={handleChange}
+          >
+            <option value=""></option>
+            <option value={true}>Sì</option>
+            <option value={false}>No</option>
 
-        {formData.attendance && (
-          <>
-            <label htmlFor="guests">{t('guests')}?</label>
-            <select
-              id="guests"
-              value={formData.guests}
-              onChange={handleChange}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+          </select>
 
-            </select>
-            <label htmlFor="guests_children">{t('guests_children')}?</label>
-            <select
-              id="guests_children"
-              value={formData.guests_children}
-              onChange={handleChange}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <label htmlFor="notes">{t('notes')}:</label>
-            <textarea
-              id="notes"
-              value={formData.notes}
-              onChange={handleChange}
-            />
-          </>
-        )}
+          {formData.attendance && (
+            <>
+              <label htmlFor="guests">{t('guests')}?</label>
+              <select
+                id="guests"
+                value={formData.guests}
+                onChange={handleChange}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
 
-        <Button type="submit" variant="primary">Invia</Button>
-      </form>
-    </section>
+              </select>
+              <label htmlFor="guests_children">{t('guests_children')}?</label>
+              <select
+                id="guests_children"
+                value={formData.guests_children}
+                onChange={handleChange}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label htmlFor="notes">{t('notes')}:</label>
+              <textarea
+                id="notes"
+                value={formData.notes}
+                onChange={handleChange}
+              />
+            </>
+          )}
+
+          <Button type="submit" variant="primary">Invia</Button>
+        </form>
+      </section></div>
   );
 };
 

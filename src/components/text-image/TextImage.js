@@ -15,7 +15,7 @@ const TextImage = ({ inverse, children, text, title, address, maxHeight }) => {
         <div style={{ maxHeight: maxHeight }} class="w-full lg:basis-1/3 lg:flex-grow-0 lg:sticky lg:top-0  rounded-xl  shadow-lg cursor-pointer p-2.5 py-2 border-2 border-solid ">
           {children}
           <div className="py-4">
-            <h2 className="font-bold text-xl mb-2">{title}</h2>
+            <h1 className="font-bold text-xl mb-2">{title}</h1>
             <p className="text-gray-700 text-base">
               {address}
             </p>

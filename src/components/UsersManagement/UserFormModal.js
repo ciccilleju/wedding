@@ -26,7 +26,7 @@ const UserFormModal = ({ isOpen, onClose, formData, setFormData, editUser, creat
     >
       <div className="p-6 relative">
 
-        <h2 className="text-3xl font-bold">{editUser === 'add' ? 'Create User' : 'Update User'} {editUser === 'update' ? formData.username : ''}  </h2>
+        <h1 className="text-3xl font-bold">{editUser === 'add' ? 'Create User' : 'Update User'} {editUser === 'update' ? formData.username : ''}  </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <span className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700 focus:outline-none cursor-pointer" onClick={onClose}>
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

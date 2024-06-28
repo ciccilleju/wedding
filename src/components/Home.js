@@ -14,13 +14,16 @@ const Home = () => {
       <section className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 md:p-8 bg-cover bg-center"
         style={{ backgroundImage: `url(${calabriaBackground})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-100 mb-6 relative z-10">
-          {t('welcome_to_our_wedding')}
-        </h2>
-        <p className="text-lg md:text-xl text-center text-gray-200 mb-8 relative z-10">
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-100 mb-6 relative z-10">
+          {t('noi')}
+        </h1>
+        <p className="text-3xl md:text-2xl text-center text-gray-200 mb-8 relative z-10">
+          {t('celebrationDate')} - {t('celebrationTime')} {t('celebrationPlace')}
+        </p>
+        <p className="text-lg md:text-xl text-center text-gray-200 mb-8 relative z-10 w-3/4">
           Ciao {user?.firstName}, {t('happy_to_share_this_day_with_you')}
         </p>
-        <p className="text-lg md:text-xl text-center text-gray-200 mb-8 relative z-10">
+        <p className="text-3xl md:text-2xl text-center text-gray-200 mb-8 relative z-10">
           {t('please_check_your_rsvp')}
           <Link to="/RSVP" className="text-blue-300 underline ml-2">{t('qui')}</Link>
         </p>

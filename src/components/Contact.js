@@ -6,10 +6,13 @@ const Contact = () => {
   const { t } = useTranslation();
 
   return (
-    <section>
-      <h2 className="text-3xl font-bold underline">{t('contact')}</h2>
-      <p>Per qualsiasi domanda, contattaci a: [tuo-email]@esempio.com</p>
-    </section>
+    <div className="p-6 bg-gray-50 min-h-screen">
+
+      <section>
+        <h2>{t('contact')}</h2>
+        <p>Per qualsiasi domanda, contattaci a: [tuo-email]@esempio.com</p>
+      </section>
+    </div>
   );
 }
 

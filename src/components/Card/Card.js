@@ -19,7 +19,7 @@ const Card = ({ title, text, caption, imgSrc, tag, size }) => {
         </div>
       </div>
       <div className="px-6 py-4">
-        <h2 className="font-bold text-xl mb-2">{title}</h2>
+        <h1 className="font-bold text-xl mb-2">{title}</h1>
         <p className="text-gray-700 text-base">
           {text}
         </p>

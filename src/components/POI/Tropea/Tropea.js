@@ -9,7 +9,7 @@ const Tropea = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.poi}>
-      <h2 className="text-3xl font-bold underline">Tropea</h2>
+      <h2>Tropea</h2>
 
       <TextImage
         title={'Tropea'}

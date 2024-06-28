@@ -5,11 +5,13 @@ const Travel = () => {
 
   const { t } = useTranslation();
   return (
-    <section>
-      <h2 className="text-3xl font-bold underline">Informazioni di Viaggio</h2>
-      <p>Aeroporto più vicino: Aeroporto di Città</p>
-      <p>Stazione dei treni: Stazione Centrale</p>
-    </section>
+    <div className="p-6 bg-gray-50 min-h-screen">
+
+      <section>
+        <h2 className='mb-4 text-center'>Informazioni di viaggio</h2>
+      </section>
+
+    </div>
   );
 }
 

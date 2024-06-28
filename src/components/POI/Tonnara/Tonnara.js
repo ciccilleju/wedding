@@ -9,7 +9,7 @@ const Tonnara = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.poi}>
-      <h2 className="text-3xl font-bold underline">     La Tonnara di Palmi perla della Calabria</h2>
+      <h2>     La Tonnara di Palmi perla della Calabria</h2>
 
       <p>
         Una spiaggia bianchissima che s’affaccia su una piscina naturale d’acqua salata limpida e azzurra, racchiusa, come in un abbraccio, da una serie di speroni rocciosi.

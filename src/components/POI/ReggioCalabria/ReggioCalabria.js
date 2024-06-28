@@ -8,7 +8,7 @@ const ReggioCalabria = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.poi}>
-      <h2 className="text-3xl font-bold underline">Reggio Calabria</h2>
+      <h2>Reggio Calabria</h2>
 
       <p>
         Mare e montagna si incontrano sulla punta dello stivale, nel cuore della Magna Grecia. Reggio Calabria è una città di incantesimi e sortilegi, celebrata dai viaggiatori inglesi e francesi dell'800, attirati da un clima mediterraneo sempre favorevole e dalla sua storia millenaria.  </p>

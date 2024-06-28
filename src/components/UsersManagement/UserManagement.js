@@ -95,7 +95,7 @@ const UserManagement = () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold underline">User Management</h2>
+      <h2>User Management</h2>
       <div className="flex justify-end">
         <div className="w-full sm:w-1/6">
           <Button type="button" variant={editUser === 'add' ? 'secondary' : 'primary'} onClick={() => { setIsModalOpen(true); setEditUser(editUser === 'add' ? '' : 'add') }}>
@@ -116,7 +116,7 @@ const UserManagement = () => {
         createUser={createUser}
         updateUser={updateUser}
       />)}
-      <h2 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h2>
+      <h1 className="text-3xl font-bold my-4 text-center">Lista utenti registrati</h1>
       <UserList users={users} handleUpdateUser={handleUpdateUser} handleDeleteUser={handleDeleteUser} />
       <div className="flex justify-between mt-4">
         <Button

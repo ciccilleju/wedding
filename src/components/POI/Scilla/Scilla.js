@@ -9,7 +9,7 @@ const Scilla = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.poi}>
-      <h2 className="text-3xl font-bold underline"> Scilla</h2>
+      <h2> Scilla</h2>
 
       <p>
         sorge su un promontorio a picco sul mare della Costa Viola, in Calabria. Il nome ricorda il mostro marino della mitologia greca. Qui giunsero greci, romani e poi i normanni che lasciarono il Castello di Ruffo sulla rocca che domina il paese.

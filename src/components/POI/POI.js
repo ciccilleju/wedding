@@ -14,7 +14,11 @@ const POI = () => {
 
   const { t } = useTranslation();
   return (
-    <div className={styles.poi}>
+
+    <div className={`${styles.poi} p-6 bg-gray-50 min-h-screen`} >
+
+
+
       <h3 class="text-xl font-semibold text-gray-700 tracking-wider text-center"> DA NON PERDERE</h3>
       <h1 class="text-4xl font-bold text-center text-blue-600 mt-4 mb-6">
         Il meglio della Calabria

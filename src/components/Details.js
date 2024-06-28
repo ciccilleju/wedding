@@ -7,12 +7,17 @@ const Details = () => {
 
 
   return (
-    <section>
-      <h2 className="text-3xl font-bold underline">Dettagli del Matrimonio</h2>
-      <p>Data: 24 Giugno 2024</p>
-      <p>Luogo: Giardino Bellissimo, Città</p>
-      <p>Dettagli della Cerimonia e del Ricevimento</p>
-    </section>
+    <div className="p-6 bg-gray-50 min-h-screen">
+
+      <section>
+        <h2 className='mb-4 text-center'>Dettagli del Matrimonio</h2>
+      </section>
+      <section>
+        <p>Data: {t('celebrationDate')} - {t('celebrationTime')} </p>
+        <p>Luogo: {t('celebrationPlace')} </p>
+        <p>Dettagli della Cerimonia e del Ricevimento</p>
+      </section>
+    </div>
   );
 }
 

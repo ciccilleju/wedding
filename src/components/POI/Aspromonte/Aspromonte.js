@@ -8,7 +8,7 @@ const Aspromonte = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.poi}>
-      <h2 className="text-3xl font-bold underline">   Parco Nazionale dell'Aspromonte</h2>
+      <h2>   Parco Nazionale dell'Aspromonte</h2>
 
       <p>
         Ricco di bellezze naturali, valli, cascate, piccoli borghi e paesaggi mozzafiato che uniscono mare e montagna, il Parco Nazionale dell’Aspromonte è una destinazione imperdibile in Italia. Terra dalla storia antica, ricca di cultura e tradizioni radicate trasmesse di generazione in generazione, il parco possiede un'offerta turistica ampia e caratteristica tutta da scoprire.   </p>
