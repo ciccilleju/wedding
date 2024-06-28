@@ -10,5 +10,8 @@ module.exports = {
       },
     },
     plugins: [],
+    corePlugins: {
+      scrollBehavior: true, // Enabling core plugin for scroll behavior
+    },
   }
 }

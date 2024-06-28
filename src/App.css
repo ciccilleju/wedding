@@ -5,10 +5,13 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 main {
-  padding: 3rem;
+  padding: 0.5rem;
 
 }
 

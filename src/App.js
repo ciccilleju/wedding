@@ -23,6 +23,7 @@ import ReggioCalabria from './components/POI/ReggioCalabria/ReggioCalabria';
 import Tropea from './components/POI/Tropea/Tropea';
 import Scilla from './components/POI/Scilla/Scilla';
 import CapoVaticano from './components/POI/CapoVaticano/CapoVaticano';
+import Footer from './components/Footer';
 
 
 
@@ -97,6 +98,7 @@ function App() {
           </Routes>
 
         </main>
+        <Footer />
       </Router>
     </AuthProvider>
   );

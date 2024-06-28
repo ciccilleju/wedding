@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 
@@ -14,6 +14,13 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
 
   return (
     <header className="bg-white shadow-md">
@@ -32,7 +39,7 @@ const Header = () => {
           </svg>
         </span>
         <nav className={`md:flex md:items-center md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} w-full md:w-auto`}>
-          <ul onClick={toggleMenu} className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+          <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
             <li>
               <Link to="/" className="text-gray-600 hover:text-blue-600 transition duration-300">
                 Home
