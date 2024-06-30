@@ -55,19 +55,17 @@ const Header = () => {
                 {t('schedule')}
               </Link>
             </li>
+            <li>
+              <Link to="/travel" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                {t('travel_info')}
+              </Link>
+            </li>
             {(userRole === 'admin' || userRole === 'guest_italy') && (
-              <>
-                <li>
-                  <Link to="/travel" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    {t('travel_info')}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/accommodation" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    {t('accommodation')}
-                  </Link>
-                </li>
-              </>
+              <li>
+                <Link to="/accommodation" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                  {t('accommodation')}
+                </Link>
+              </li>
             )}
             {(userRole === 'admin' || userRole === 'guest_hungary') && (
               <li>
@@ -102,6 +100,13 @@ const Header = () => {
               <li>
                 <Link to="/users" className="text-gray-600 hover:text-blue-600 transition duration-300">
                   Users Management
+                </Link>
+              </li>
+            )}
+            {userRole === 'admin' && (
+              <li>
+                <Link to="/attendance" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                  Attendance List
                 </Link>
               </li>
             )}

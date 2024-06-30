@@ -24,6 +24,7 @@ import Tropea from './components/POI/Tropea/Tropea';
 import Scilla from './components/POI/Scilla/Scilla';
 import CapoVaticano from './components/POI/CapoVaticano/CapoVaticano';
 import Footer from './components/Footer';
+import AttendanceList from './components/UsersManagement/AttendanceList';
 
 
 
@@ -92,6 +93,11 @@ function App() {
             <Route path="/users" element={
               <PrivateRoute roles={['admin']}>
                 <UserManagement />
+              </PrivateRoute>
+            } />
+            <Route path="/attendance" element={
+              <PrivateRoute roles={['admin']}>
+                <AttendanceList />
               </PrivateRoute>
             } />
 
