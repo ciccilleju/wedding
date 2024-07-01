@@ -58,18 +58,17 @@ const AttendanceList = () => {
       <h2>Total Confirmed Guests: {adults + children} <br /> Adults: {adults} - Children: {children}</h2>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {users.map(user => (
-          <div key={user._id} className="w-full mx-auto bg-white rounded-xl overflow-hidden shadow-lg border rounded-lg bg-white">
-            <div className="p-2">
-              <h3 className="font-bold text-xl mb-2">{user.username}</h3>
-              <p className="text-gray-600 mb-2">{user.firstName} {user.lastName}</p>
-              {user.attendance && (
-                <>
+          <>
+            {user.attendance &&
+              <div key={user._id} className="w-full mx-auto bg-white rounded-xl overflow-hidden shadow-lg border rounded-lg bg-white">
+                <div className="p-2">
+                  <h3 className="font-bold text-xl mb-2">{user.firstName} {user.lastName}</h3>
                   <p className="text-gray-600 mb-2">Adults: {user.guests} - Children: {user.guests_children}</p>
                   <p className="text-gray-600 mb-2">Intolerances: {user.notes}</p>
-                </>
-              )}
-            </div>
-          </div>
+                </div>
+              </div >
+            }
+          </>
         ))}
       </div>
 
